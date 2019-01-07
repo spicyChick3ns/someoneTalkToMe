@@ -1,13 +1,15 @@
 import * as firebase from 'firebase';
 import { firebaseConfig } from '../configs/firebase';
 
-let istance = null;
+let instance = null;
 
 class FirebaseService {
   constructor() {
     if (!instance) {
       this.app = firebase.initialize(firebaseConfig);
+      instance = this;
     }
+    return instance;
   }
 }
 
